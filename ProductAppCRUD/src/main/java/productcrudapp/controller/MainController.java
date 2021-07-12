@@ -55,5 +55,15 @@ public class MainController {
 		return redirectView;
 
 	}
+	
+	//update handler
+	@RequestMapping("/update/{productId}")
+	public String updateForm(@PathVariable("productId") int productId, Model m) {
+		Product product = this.productDao.getProduct(productId);
+		m.addAttribute("product", product);
+		return "update_form";
+	}
+	
+	
 
 }
